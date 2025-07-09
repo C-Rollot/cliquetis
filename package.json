@@ -1,0 +1,20 @@
+{
+  "name": "cliquetis",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/C-Rollot/cliquetis.git"
+  },
+  "author": "C-Rollot",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/C-Rollot/cliquetis/issues"
+  },
+  "homepage": "https://github.com/C-Rollot/cliquetis#readme"
+}
