@@ -18,6 +18,10 @@
   },
   "homepage": "https://github.com/C-Rollot/cliquetis#readme",
   "dependencies": {
-    "dotenv": "^17.1.0"
+    "dotenv": "^17.1.0",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "pg": "^8.16.3",
+    "sequelize": "^6.37.7"
   }
 }
