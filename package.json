@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/C-Rollot/cliquetis/issues"
   },
-  "homepage": "https://github.com/C-Rollot/cliquetis#readme"
+  "homepage": "https://github.com/C-Rollot/cliquetis#readme",
+  "dependencies": {
+    "dotenv": "^17.1.0"
+  }
 }

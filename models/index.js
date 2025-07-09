@@ -3,10 +3,14 @@ const path = require('path');
 const Sequelize = require('sequelize');
 const basename = path.basename(__filename);
 const db = {};
+const config = require('./config').development;
 
-const sequelize = new Sequelize('cliquetis', 'postgres', 'postgres', {
-  host: 'localhost',
-  dialect: 'postgres',
+
+const sequelize = new Sequelize(config.database, config.username, config.password, {
+  host: config.host,
+  dialect: config.dialect,
+  port: config.port,
+  logging: config.logging
 });
 
 fs
@@ -28,4 +32,4 @@ Object.keys(db).forEach(modelName => {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
-module.exports = db;
+module.exports = db, { sequelize };
