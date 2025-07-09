@@ -16,12 +16,22 @@ const sequelize = new Sequelize(config.database, config.username, config.passwor
 fs
   .readdirSync(__dirname)
   .filter(file => (
-    file.indexOf('.') !== 0 && file !== basename && file.slice(-3) === '.js'
+    file.indexOf('.') !== 0 &&
+    file !== basename &&
+    file.slice(-3) === '.js'
   ))
   .forEach(file => {
-    const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);
-    db[model.name] = model;
+    const modelPath = path.join(__dirname, file);
+    const modelFn = require(modelPath);
+
+    if (typeof modelFn === 'function') {
+      const model = modelFn(sequelize, Sequelize.DataTypes);
+      db[model.name] = model;
+    } else {
+      console.warn(`⚠️ Le fichier ${file} n'exporte pas une fonction Sequelize. Ignoré.`);
+    }
   });
+
 
 Object.keys(db).forEach(modelName => {
   if (db[modelName].associate) {
@@ -32,4 +42,4 @@ Object.keys(db).forEach(modelName => {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
-module.exports = db, { sequelize };
+module.exports = db;
