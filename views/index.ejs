@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Cliquetis</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Racontez votre histoire</h1>
+
+    <form action="/submit" method="POST">
+      <label for="pseudo">Pseudo :</label>
+      <input type="text" id="pseudo" name="pseudo" placeholder="Votre pseudo">
+
+      <label for="histoire">Votre histoire :</label>
+      <textarea id="histoire" name="histoire" required></textarea>
+
+      <label>
+        <input type="checkbox" name="allowVideo">
+        Autoriser la diffusion vidéo
+      </label>
+
+      <button type="submit">Envoyer</button>
+    </form>
+
+    <hr>
+
+    <h2>Récits publiés</h2>
+
+    <% if (posts.length === 0) { %>
+      <p>Aucun récit pour le moment.</p>
+    <% } else { %>
+      <% posts.forEach(post => { %>
+        <div class="post">
+          <h3><%= post.pseudo || "Anonyme" %></h3>
+          <p><%= post.histoire %></p>
+          <% if (post.allowVideo) { %>
+            <p><em>✔ Autorise la diffusion vidéo</em></p>
+          <% } else { %>
+            <p><em>❌ N’autorise pas la diffusion vidéo</em></p>
+          <% } %>
+          <small>Publié le <%= new Date(post.createdAt).toLocaleString("fr-FR") %></small>
+        </div>
+      <% }) %>
+    <% } %>
+  </div>
+</body>
+</html>

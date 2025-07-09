@@ -1,0 +1,9 @@
+
+CREATE TABLE posts (
+  id SERIAL PRIMARY KEY,
+  pseudo VARCHAR(255),
+  histoire TEXT NOT NULL,
+  allow_video BOOLEAN NOT NULL DEFAULT FALSE,
+  created_at TIMESTAMP NOT NULL DEFAULT NOW(),
+  updated_at TIMESTAMP NOT NULL DEFAULT NOW()
+);
