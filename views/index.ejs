@@ -40,7 +40,19 @@
           <% } else { %>
             <p><em>❌ N’autorise pas la diffusion vidéo</em></p>
           <% } %>
-          <small>Publié le <%= new Date(post.created_at).toLocaleString("fr-FR", { day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit' }) %></small>
+          <small>
+            Publié le 
+            <%=
+                new Date(post.created_at).toLocaleString("fr-FR", {
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                timeZone: 'Europe/Paris'
+              })
+            %>
+          </small>
         </div>
       <% }) %>
     <% } %>
