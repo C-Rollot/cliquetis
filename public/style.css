@@ -106,3 +106,13 @@ button:hover {
     font-size: 14px;
   }
 }
+
+.error-messages {
+  background-color: #ffe5e5;
+  border: 1px solid #cc0000;
+  color: #cc0000;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+

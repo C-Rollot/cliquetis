@@ -22,8 +22,19 @@ router.post('/submit', (req, res) => {
     })
     .catch(err => {
       if (err.isJoi) {
-        const errorMessages = err.details.map(detail => detail.message).join('<br>');
-        res.status(400).send(`Erreur de validation :<br>${errorMessages}`);
+        // Récupérer les posts existants + afficher erreurs
+        Post.findAll({ order: [['created_at', 'DESC']] })
+          .then(posts => {
+            const errorMessages = err.details.map(detail => detail.message);
+            res.render('index', {
+              posts,
+              errors: errorMessages
+            });
+          })
+          .catch(fetchError => {
+            console.error(fetchError);
+            res.status(500).send("Erreur serveur lors du chargement des récits.");
+          });
       } else {
         console.error(err);
         res.status(500).send("Erreur serveur lors de la publication.");
