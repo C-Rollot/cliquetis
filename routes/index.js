@@ -16,8 +16,6 @@ router.get('/', (req, res) => {
 
 // POST - Publier un récit
 router.post('/submit', (req, res) => {
-    console.log(req.body);
-
     const { pseudo, histoire, allowVideo } = req.body;
   
     Post.create({
