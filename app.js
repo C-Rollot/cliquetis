@@ -20,15 +20,19 @@ const port = 3000;
 const startServer = async () => {
   try {
     await db.sequelize.authenticate();
-    console.log('Connexion à la base OK');
+    console.log('Connecté à la base de données.');
 
     await db.sequelize.sync({ alter: true });  // crée/maj tables sans perdre les données
 
     app.listen(port, () => {
+<<<<<<< HEAD
       console.log(`Connecté sur le port ${port}`);
+=======
+      console.log(`Connecté sur le port ${port}.`);
+>>>>>>> dev
     });
   } catch (error) {
-    console.error('Erreur lors de la connexion à la base:', error);
+    console.error('Erreur lors de la connexion:', error);
   }
 };
 
