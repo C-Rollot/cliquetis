@@ -5,8 +5,6 @@ const { postSchema } = require('../validators/postValidator');
 
 // POST - Send a publication
 router.post('/submit', (req, res) => {
-  console.log(req.body);
-
   // Convertir la checkbox en booléen
   const data = {
     ...req.body,
