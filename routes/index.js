@@ -6,7 +6,7 @@ const { Post } = require('../models');
 router.get('/', (req, res) => {
     Post.findAll({ order: [['created_at', 'DESC']] })
       .then(posts => {
-        res.render('index', { posts });
+        res.render('index', { posts, errors: [] })
       })
       .catch(err => {
         console.error(err);
