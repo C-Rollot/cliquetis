@@ -18,6 +18,7 @@ fs
   .filter(file => (
     file.indexOf('.') !== 0 &&
     file !== basename &&
+    file !== 'config.js' &&
     file.slice(-3) === '.js'
   ))
   .forEach(file => {
