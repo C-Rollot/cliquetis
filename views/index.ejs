@@ -7,7 +7,9 @@
 </head>
 <body>
   <div class="container">
-    <h1>Racontez votre histoire</h1>
+    <h1>Cliquetis</h1>
+
+    <h2>Racontez votre histoire.</h2>
 
     <form action="/submit" method="POST">
       <label for="pseudo">Pseudo :</label>
@@ -18,7 +20,7 @@
 
       <label>
         <input type="checkbox" name="allowVideo">
-        Autoriser la diffusion vidéo
+        Autoriser la diffusion sur Instagram
       </label>
 
       <button type="submit">Envoyer</button>
@@ -36,9 +38,9 @@
           <h3><%= post.pseudo || "Anonyme" %></h3>
           <p><%= post.histoire %></p>
           <% if (post.allowVideo) { %>
-            <p><em>✔ Autorise la diffusion vidéo</em></p>
+            <p><em>✔ Autorise la diffusion sur Instagram</em></p>
           <% } else { %>
-            <p><em>❌ N’autorise pas la diffusion vidéo</em></p>
+            <p><em>❌ N’autorise pas la diffusion sur Instagram</em></p>
           <% } %>
           <small>Publié le <%= new Date(post.created_at).toLocaleString("fr-FR", { day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit' }) %></small>
         </div>
