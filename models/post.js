@@ -1,4 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
+  
+  // Define the 'posts' table in Sequelize
     const Post = sequelize.define('Post', {
       pseudo: {
         type: DataTypes.STRING,

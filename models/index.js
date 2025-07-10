@@ -5,7 +5,7 @@ const basename = path.basename(__filename);
 const db = {};
 const config = require('./config').development;
 
-
+// Connection to Databsase
 const sequelize = new Sequelize(config.database, config.username, config.password, {
   host: config.host,
   dialect: config.dialect,

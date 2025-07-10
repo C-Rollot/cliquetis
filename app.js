@@ -5,15 +5,15 @@ const path = require('path');
 const app = express();
 const db = require('./models');
 
-app.set('view engine', 'ejs'); // Moteur de template EJS
-app.set('views', path.join(__dirname, 'views')); // Dossier contenant les vues
+app.set('view engine', 'ejs'); // EJS Template Engine
+app.set('views', path.join(__dirname, 'views')); // File containing the views
 
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'public'))); // Fichiers statiques (CSS, images)
-app.use(express.urlencoded({ extended: true })); // Pour parser les données du formulaire
+app.use(express.static(path.join(__dirname, 'public'))); // Static files (CSS)
+app.use(express.urlencoded({ extended: true })); // To parse form data
 
 const mainRoutes = require('./routes/index');
-app.use('/', mainRoutes); // utilise le routeur principal
+app.use('/', mainRoutes); // Use the main router
 
 const port = 3000;
 
@@ -22,7 +22,7 @@ const startServer = async () => {
     await db.sequelize.authenticate();
     console.log('Connecté à la base de données.');
 
-    await db.sequelize.sync({ alter: true });  // crée/maj tables sans perdre les données
+    await db.sequelize.sync({ alter: true });  // Create / update tables without losing data
 
     app.listen(port, () => {
       console.log(`Connecté sur le port ${port}.`);
