@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { Post } = require('../models');
 
-// GET - Afficher les récits
+// GET - Display all publications
 router.get('/', (req, res) => {
     Post.findAll({ order: [['created_at', 'DESC']] })
       .then(posts => {
@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
       });
   });
 
-// POST - Publier un récit
+// POST - Send a publication
 router.post('/submit', (req, res) => {
     const { pseudo, histoire, allowVideo } = req.body;
   
